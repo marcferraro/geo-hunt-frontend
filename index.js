@@ -87,7 +87,6 @@ const puzzleCleanup = () => {
 const addPuzzleInterfaceListeners = () => {
 
   puzzleInterfaceDiv.addEventListener('click', event => { 
-    event.preventDefault()
 
     if (event.target.id === 'clue-btn'){
       revealClue()

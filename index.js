@@ -38,7 +38,6 @@ const addNavListeners = () => {
   const nav = document.getElementById('nav-bar')
 
   nav.addEventListener('click', event => {
-    event.preventDefault()
 
     if (event.target.id === 'puzzle-btn'){
       console.log('puzzlebutton')

@@ -117,7 +117,6 @@ const displayPuzzles = () => {
   const puzzleDiv = document.createElement('div')
 
   puzzleDiv.addEventListener('click', event => {
-    event.preventDefault()
 
     if (event.target.id === 'puzzle-select' && userId){
       loadPuzzle(event.target)

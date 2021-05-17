@@ -40,42 +40,36 @@ const addNavListeners = () => {
   nav.addEventListener('click', event => {
 
     if (event.target.id === 'puzzle-btn'){
-      console.log('puzzlebutton')
       interfaceDiv.innerHTML = ""
       puzzleCleanup()
       displayPuzzles()
     }
 
     if (event.target.id === 'home-btn'){
-      console.log('you pushed the home button')
       interfaceDiv.innerHTML = ""
       puzzleCleanup()
       displayHome()
     }
 
     if (event.target.id === 'login-btn'){
-      console.log('you pushed the login button')
       interfaceDiv.innerHTML = ""
       puzzleCleanup()
       displayLoginForm()
     }
 
     if (event.target.id === 'leaderboard-btn'){
-      console.log('you pushed the leaderboard button')
       interfaceDiv.innerHTML = ""
       puzzleCleanup()
       displayLeaderboard()
     }
 
     if (event.target.id === 'profile-btn'){
-      console.log('you pushed the profile button')
       interfaceDiv.innerHTML = ""
       puzzleCleanup()
       displayProfile()
     }
 
     if (event.target.id === 'logout-btn'){
-      console.log('you pushed the logout button')
       interfaceDiv.innerHTML = ""
       puzzleCleanup()
       logout()
@@ -224,7 +218,6 @@ const loadPuzzle = (eventTarget) => {
 
   fetchDataWithReqObj(attemptsUrl, reqObj)
   .then(attempt => {
-    console.log(attempt)
   
     setTargets(attempt.puzzle.latitude, attempt.puzzle.longitude, attempt.puzzle.radius_limit)
     renderPuzzleName(attempt.puzzle.title)
@@ -235,8 +228,6 @@ const loadPuzzle = (eventTarget) => {
     const submitBtn = document.getElementById('submit-btn')
     submitBtn.dataset.attemptId = attempt.id
 
-    console.log(targetLat)
-    console.log(targetLong)
   })  
 }
 
@@ -263,9 +254,7 @@ const renderClues = (clueArray) => {
     cluesUl.append(clueLi)
   })
   const firstClueLi = document.getElementsByClassName("hint")[0]
-  console.log(firstClueLi)
   firstClueLi.style.display = "block"
-  console.log(firstClueLi)
 }
 
 // const renderButton = () => {
@@ -309,7 +298,6 @@ const puzzleCompletion = () => {
   .then(attempt => {
     togglePuzzleInterface()
     interfaceDiv.innerHTML = ""
-    console.log (attempt)
     renderSuccess(attempt)
   })
   

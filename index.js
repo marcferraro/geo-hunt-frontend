@@ -42,48 +42,48 @@ const addNavListeners = () => {
     if (event.target.id === 'puzzle-btn'){
       console.log('puzzlebutton')
       interfaceDiv.innerHTML = ""
-      puzzleVibeCheck()
+      puzzleCleanup()
       displayPuzzles()
     }
 
     if (event.target.id === 'home-btn'){
       console.log('you pushed the home button')
       interfaceDiv.innerHTML = ""
-      puzzleVibeCheck()
+      puzzleCleanup()
       displayHome()
     }
 
     if (event.target.id === 'login-btn'){
       console.log('you pushed the login button')
       interfaceDiv.innerHTML = ""
-      puzzleVibeCheck()
+      puzzleCleanup()
       displayLoginForm()
     }
 
     if (event.target.id === 'leaderboard-btn'){
       console.log('you pushed the leaderboard button')
       interfaceDiv.innerHTML = ""
-      puzzleVibeCheck()
+      puzzleCleanup()
       displayLeaderboard()
     }
 
     if (event.target.id === 'profile-btn'){
       console.log('you pushed the profile button')
       interfaceDiv.innerHTML = ""
-      puzzleVibeCheck()
+      puzzleCleanup()
       displayProfile()
     }
 
     if (event.target.id === 'logout-btn'){
       console.log('you pushed the logout button')
       interfaceDiv.innerHTML = ""
-      puzzleVibeCheck()
+      puzzleCleanup()
       logout()
     }
   })
 }
 
-const puzzleVibeCheck = () => {
+const puzzleCleanup = () => {
   if (puzzleInterfaceShowing){
     stopTimer()
     togglePuzzleInterface()

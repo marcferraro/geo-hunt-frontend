@@ -1,6 +1,5 @@
 const displayHome = () => {
     const homeDiv = document.createElement('div')
-
     homeDiv.className = 'text-center'
 
     const greeting = document.createElement('h3')

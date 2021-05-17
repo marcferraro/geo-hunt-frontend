@@ -1,26 +1,4 @@
-//nav bar psuedocode - including login but not just login
-
-// home 
-    //clear out interface div
-    //what interfaces do we want to show?
-    // introduce the program
-    // some instructions 
-
-// login
-    // clear out interfaceDiv (already a const in index)
-    // create buttons for create account or login 
-    // create account - sends a fetch (post) request to users and sets that id to a global current user variable
-    // login - sends a get reqest to users with a custom route and searchers for the user by the username
-        // do something like "if user.try(:authenticate, params[:password])" to search for the user
-        //if it logs in, set the id to a global user variable to use for attempts
-            // render some sort of successful login message? (what do we want to happen here? puzzle page? profile? home?)
-        // if it doesnt, throw an error message 
-        // go back and update attempts post request to use the global varible 
-
-
 const displayLoginForm = () => {
-    console.log("you displayed the login form")
-
     const loginDiv = document.createElement('div')
     loginDiv.className = "text-center"
     loginDiv.id = 'login-div'
@@ -76,17 +54,15 @@ const displayLoginForm = () => {
 }
 const addLoginListeners = () => {
     const loginForm = document.querySelector('#login-form')
-    // const loginButton = document.querySelector('#submit-btn')
 
     loginForm.addEventListener('submit', event => {
         event.preventDefault()
-        console.log('submit button pressed')
         
         const credentials = {
             username: document.querySelector('#login-form').children[2].value,
             password: document.querySelector('#login-form').children[5].value
         }
-        // debugger
+
         const reqObj = {
             method: "POST",
             headers: {
@@ -109,7 +85,6 @@ const addLoginListeners = () => {
                 profileButton.style.display = ""
                 profileButton.innerText = user.username
                 displayProfile()
-
             }
         }).catch(()=>
         {alert("Incorrect username or password, please try again.")}
@@ -119,7 +94,6 @@ const addLoginListeners = () => {
     const newAccountButton = document.getElementById('new-account-btn')
 
     newAccountButton.addEventListener('click', event => {
-        event.preventDefault()
         displayCreateUserForm()
     })
 }
@@ -127,7 +101,6 @@ const addLoginListeners = () => {
 
 
 const displayCreateUserForm = (e) => {
-    console.log("you want to display a new user form")
     interfaceDiv.innerHTML = 
     `
     <div>
@@ -158,13 +131,8 @@ const displayCreateUserForm = (e) => {
     addCreateAccountListener()
 }
 
-// const loginUser = (e) => {
-//     console.log("you want to login a user")
-// }
-
 const addCreateAccountListener = () => {
     const newForm = document.querySelector('#new-form')
-    // const loginButton = document.querySelector('#submit-btn')
 
     newForm.addEventListener('submit', event => {
         event.preventDefault()

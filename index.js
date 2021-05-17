@@ -85,7 +85,6 @@ const puzzleCleanup = () => {
 }
 
 const addPuzzleInterfaceListeners = () => {
-
   puzzleInterfaceDiv.addEventListener('click', event => { 
 
     if (event.target.id === 'clue-btn'){
@@ -113,7 +112,6 @@ const togglePuzzleInterface = () => {
 
 
 const displayPuzzles = () => {
-
   const puzzleDiv = document.createElement('div')
 
   puzzleDiv.addEventListener('click', event => {
@@ -144,7 +142,6 @@ const displayPuzzles = () => {
 }
 
 const renderPuzzleLi = (puzzle, cardContainer) => {
-
   const card = document.createElement('div')
   card.className = 'card text-center'
 
@@ -166,14 +163,10 @@ const renderPuzzleLi = (puzzle, cardContainer) => {
   const difficulty = document.createElement('p')
   difficulty.innerText = capitalize(puzzle.difficulty)
 
-  // completion percentage
-  // highest rated
-  // most played
-  // add difficulty categorizer/sections
-
   cardContainer.append(card)
   card.append(title, span, difficulty)
   
+  // puzzle thumbnail once database images are complete
   // if (puzzle.preview_image) {
   //   const image = document.createElement('img')
   //   image.setAttribute("src", puzzle.preview_image)
@@ -184,12 +177,12 @@ const renderPuzzleLi = (puzzle, cardContainer) => {
 
 }
 
+// fetch specfic puzzle utilizing the id stored in the event target
+  // set our global targetLat and targetLong
+  // receive, render initial clue to screen, togglle puzzle interface and timer
 const loadPuzzle = (eventTarget) => {
   cluesUl.innerHTML = ""
   togglePuzzleInterface()
-  // fetch specfic puzzle utilizing the id stored in the event target ~
-  // set our global targetLat and targetLong
-  // receive, render initial clue to screen toggling puzzle interface and timer
 
   const reqObj = {
     method: 'POST',
@@ -204,15 +197,6 @@ const loadPuzzle = (eventTarget) => {
       }
     )
   }
-
-  // 'load puzzle'
-  // render puzzle interface
-    // title, 1st clue, clue buttons, timer, submit button, display current coordinates
-    // if submitted correctly
-      // stop timer
-      // de render puzzle interface and toggle interface div
-      // update attempt and show a victory page (picture of location?)
-        // suggestions - check out the leaderboards or your profile to view stats, or hit the puzzle tab to keep the puzzle train rolling
 
   fetchDataWithReqObj(attemptsUrl, reqObj)
   .then(attempt => {
@@ -255,11 +239,6 @@ const renderClues = (clueArray) => {
   firstClueLi.style.display = "block"
 }
 
-// const renderButton = () => {
-//   const button = document.getElementById("clue-btn")
-//   button.innerHTML = `Show Next Hint`
-// }
-
 const revealClue = () => {
 
   const cluesLiArray = document.getElementsByClassName("hint")
@@ -271,9 +250,9 @@ const revealClue = () => {
   }
 }
 
-const puzzleCompletion = () => {
-  // send updated attempt
+// send updated attempt
   // render victory screen
+const puzzleCompletion = () => {
   stopTimer()
   const attemptId = parseInt(submitBtn.dataset.attemptId, 10)
   const stopwatch = document.getElementById('stopwatch').innerText
@@ -302,11 +281,6 @@ const puzzleCompletion = () => {
 }
 
 const renderSuccess = (attempt) => {
-
- 
-
-
-
   const div = document.createElement('div')
   div.className = 'my-4 text-center'
 

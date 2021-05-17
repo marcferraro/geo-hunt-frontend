@@ -1,3 +1,4 @@
+// 'State'
 let puzzleInterfaceShowing = false
 let userId = false
 let username = false
